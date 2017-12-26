@@ -1,0 +1,11 @@
+{
+  "name": "autoLoadCasperJS",
+  "version": "1.0.0",
+  "description": "Task automation",
+  "dependencies": {
+    "nconfig": "0.0.6",
+    "node-horseman": "^3.3.0",
+    "shortid": "^2.2.8",
+    "urlparse": "0.0.1"
+  }
+}
