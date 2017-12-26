@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Params:
+# $1 - To send mail;
+# $2 - Log file name;
+# $3 - Date;
+# $4 - Elapsed time;
+
+subs="Отчёт автоматизированной загрузки"
+from="Show Logs"
+showLogsBaseUrl="http://localhost/"
+
+read -d '' text << EOF
+	<html>
+	<body>
+	<h2>$subs</h2>
+	<h3 style="background-color: green; color: white; font-weight: bold; padding: 30px 15px;">Процесс завершился удачно!</h3>
+	<p>Дата: $3</p>
+	<p>Время выполнения: $4</p>
+	<p>Посмотреть лог: <a href='$showLogsBaseUrl$2' target='_blank' title='Открыть лог'>$2</a></p>
+	</body>
+	</html>
+EOF
+
+./sendEmail -f "noreply@localhost.ru" -t "$1" -u "$subs" -m "$text" -o "message-content-type=html" -o "message-charset=cp1251";
